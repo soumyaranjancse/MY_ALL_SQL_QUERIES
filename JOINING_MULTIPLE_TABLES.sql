@@ -1,0 +1,20 @@
+USE SalesDB
+
+SELECT  
+	O.OrderID,
+	O.Sales,
+	C.FirstName AS CUSTOMER_FIRST_NAME,
+	C.LastName AS CUSTOMER_LAST_NAME,
+	P.Product AS PRODUCT_NAME,
+	P.Price AS PRODUCT_PRICE,
+	E.FirstName AS SALESPERSON_FIRST_NAME,
+	E.LastName AS SALESPERSON_LAST_NAME
+FROM SALES.ORDERS AS O
+LEFT JOIN SALES.Customers AS C
+ON O.CustomerID = C.CustomerID
+LEFT JOIN SALES.Products AS P
+ON O.ProductID = P.ProductID
+LEFT JOIN SALES.Employees AS E
+ON O.SalesPersonID = E.EmployeeID
+
+
